@@ -1,5 +1,20 @@
 # Alex_Houndred_hires
 Alex Houndred_hires repository
+
+---
+
+## 🎯 Selected Research Topic: **`AI-powered SEO content production`**
+
+### Why this topic was chosen:
+Traditional SEO is undergoing a massive shift due to the introduction of AI-powered search engines (e.g., Google's AI Overviews, Search Generative Experience, and Generative Engine Optimization). To succeed in this new landscape, businesses must pivot from manual search tactics to automated, semantic, and high-quality content production. 
+
+This topic was chosen to design and build a pipeline that:
+1. **Identifies Real-World Experts**: Curation of a database of SEO practitioners who actively run data experiments on AI-SEO campaigns rather than just theoretical strategy.
+2. **Automates Content Sourcing**: Building python utilities to retrieve and clean LinkedIn posts and YouTube transcripts from leading SEO minds.
+3. **Implements Programmatic Scaling**: Researching modern automation tools (such as n8n, Topical Authority Maps, and NLP-based optimization) to scale high-quality organic content creation.
+
+---
+
 # Project Setup and Environment Configuration
 
 This repository contains the documentation for the initial development environment setup, including the tools installed, configuration steps completed, and troubleshooting for the IDE user interface.
