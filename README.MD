@@ -45,11 +45,39 @@ The following tools and extensions were installed to establish the development e
 
 ---
 
+## 🔄 Development Transition & LLM Tooling Journey
+
+This project was built using a hybrid model approach across different development tools and Large Language Models (LLMs) to ensure completion under constraints:
+
+1. **Initial Phase (Cursor & Claude Code)**: The first half of the project was developed using Claude Code within the Cursor IDE. Due to token limitations on Cursor's free tier, a transition was made to Antigravity (Gemini-powered IDE) to fulfill all project requirements on time.
+2. **Data Sourcing (Perplexity & Comet Browser Assistant)**: To scrape, scrub, and compile the expert profile data, we utilized Perplexity AI in combination with the Comet browser assistant.
+3. **Multi-Model Orchestration**: Throughout the project, various LLM models and token allocations were strategically managed and combined to optimize context limits and build the current pipelines.
+
+---
+
+## 📊 Profile Selection & Expert Filtering
+
+The expert research database was curated using a multi-stage selection process:
+
+1. **Initial Selection (35+ Candidates)**: The complete initial screening pool of candidates is cataloged in the external spreadsheet:
+   - **Google Sheet Link**: [Alex Houndred Hires Selected Profiles Spreadsheet](https://docs.google.com/spreadsheets/d/1ONKwwYx_QyoVWoaVE_3k3k5iGHVGVENPDcjz4HLSxa8/edit?gid=1999288685#gid=1999288685)
+2. **Filtering Criteria & Methodology**: The initial pool of profiles was filtered down to the **Top 10 Selected Experts** and **Honorable Mentions** based on specific criteria documented in [sources.md](file:///Users/bhargavnayak/.gemini/antigravity-ide/scratch/Alex_Houndredhires/research/sources.md). These criteria are:
+   - **Relevance Filter**: The candidate must directly address and specialize in AI-powered SEO content production.
+   - **Practitioner Test**: The candidate must demonstrate hands-on experience by building or running actual AI content systems, publishing real data experiments rather than just theoretical strategy.
+   - **Platform Diversity**: Curation of a balanced mix of creators across YouTube, LinkedIn, podcasts, and blogs.
+   - **Content Freshness**: Active engagement in 2025–2026 with recent insights.
+   - **Unique Angle**: Each expert must bring a distinct perspective (e.g., semantic SEO, n8n automations, GEO/AEO optimization).
+   - **Actionability**: Content must provide replicable systems, prompts, or workflows.
+3. **Final Selection**: The resulting profiles, details, and platform links for the selected experts are stored in [sources.md](file:///Users/bhargavnayak/.gemini/antigravity-ide/scratch/Alex_Houndredhires/research/sources.md).
+
+---
+
 ## 🚀 Version Control
 
 To save these changes and sync them with the remote repository, execute the following commands in your terminal:
 
 ```bash
-git add README.md
-git commit -m "docs: add environment setup, automation extensions, and UI troubleshooting details to README"
+git add README.MD
+git commit -m "docs: add environment setup, automation extensions, UI troubleshooting, transition details, and selected profiles to README"
 git push origin main
+```
