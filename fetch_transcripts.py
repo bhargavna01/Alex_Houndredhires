@@ -231,11 +231,89 @@ def fetch_transcript_fallback(video_id):
         raise Exception(f"Fallback API failed: {e}")
 
 
+def fetch_transcript_supadata(video_id, api_key):
+    """
+    Fetch transcript using the Supadata API.
+    """
+    import json
+    import time
+    
+    url = f"https://api.supadata.ai/v1/transcript?url=https://www.youtube.com/watch?v={video_id}"
+    req = urllib.request.Request(
+        url,
+        headers={
+            "x-api-key": api_key,
+            "User-Agent": "Mozilla/5.0"
+        }
+    )
+    
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            res_data = json.loads(r.read().decode("utf-8"))
+            
+        status = res_data.get("status")
+        
+        # Handle asynchronous jobs if returned
+        job_id = res_data.get("jobId")
+        if job_id and status in ("queued", "active"):
+            poll_url = f"https://api.supadata.ai/v1/transcript/{job_id}"
+            print(f"  Note: Supadata job is {status}. Polling for completion...")
+            for attempt in range(12):  # poll for up to 36 seconds
+                time.sleep(3)
+                poll_req = urllib.request.Request(
+                    poll_url,
+                    headers={
+                        "x-api-key": api_key,
+                        "User-Agent": "Mozilla/5.0"
+                    }
+                )
+                try:
+                    with urllib.request.urlopen(poll_req, timeout=15) as pr:
+                        res_data = json.loads(pr.read().decode("utf-8"))
+                    status = res_data.get("status")
+                    if status == "completed":
+                        break
+                    elif status == "failed":
+                        raise Exception("Supadata transcript job failed")
+                except Exception as poll_err:
+                    print(f"    Polling attempt {attempt+1} warning: {poll_err}")
+            
+        if status == "completed":
+            content = res_data.get("content", [])
+            transcript_data = []
+            for item in content:
+                # offset and duration in supadata are in milliseconds, convert to seconds
+                start = item.get("offset", 0) / 1000.0
+                duration = item.get("duration", 0) / 1000.0
+                text = item.get("text", "")
+                transcript_data.append({
+                    "text": text,
+                    "start": start,
+                    "duration": duration
+                })
+            return transcript_data
+        else:
+            raise Exception(f"Supadata job status: {status}")
+            
+    except Exception as e:
+        raise Exception(f"Supadata API failed: {e}")
+
+
 def fetch_transcript(video_id):
     """
-    Download the English transcript (or fallback) using youtube-transcript-api.
-    If local IP is blocked, it automatically routes through a fallback web service.
+    Download the English transcript (or fallback) using:
+    1. Supadata API if SUPADATA_API_KEY environment variable is set.
+    2. youtube-transcript-api (direct scraping).
+    3. Fallback youtube-transcript.ai web API if rate-limited.
     """
+    supadata_key = os.environ.get("SUPADATA_API_KEY")
+    if supadata_key:
+        print(f"  Note: Using Supadata API for video {video_id}...")
+        try:
+            return fetch_transcript_supadata(video_id, supadata_key)
+        except Exception as e:
+            print(f"  Supadata API warning: {e}. Falling back to standard methods...")
+
     try:
         from youtube_transcript_api import YouTubeTranscriptApi
         fetch_fn = getattr(YouTubeTranscriptApi, 'get_transcript', None)
