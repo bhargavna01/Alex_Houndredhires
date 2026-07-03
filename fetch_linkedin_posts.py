@@ -47,7 +47,7 @@ def get_activity_id(url):
     return int(match.group(1)) if match else 0
 
 
-def fetch_latest_post(name):
+def fetch_latest_post(name, offset=0):
     if name not in EXPERTS:
         print(f"Error: Unknown expert '{name}'", file=sys.stderr)
         return False
@@ -81,9 +81,14 @@ def fetch_latest_post(name):
             
         # Sort by activity ID (largest is newest)
         unique_posts.sort(key=get_activity_id, reverse=True)
-        latest_post_url = unique_posts[0]
         
-        print(f"  Latest post URL: {latest_post_url}")
+        if offset >= len(unique_posts):
+            print(f"  Error: Requested offset {offset} exceeds total posts found ({len(unique_posts)})", file=sys.stderr)
+            return False
+            
+        latest_post_url = unique_posts[offset]
+        
+        print(f"  Post URL (offset {offset}): {latest_post_url}")
         
         # Fetch the latest post page
         post_req = urllib.request.Request(latest_post_url, headers=HEADERS)
@@ -109,7 +114,7 @@ def fetch_latest_post(name):
         expert_dir = os.path.join(OUTPUT_DIR, expert_slug)
         os.makedirs(expert_dir, exist_ok=True)
         
-        file_path = os.path.join(expert_dir, "post1.md")
+        file_path = os.path.join(expert_dir, f"post{offset+1}.md")
         date_str = datetime.date.today().strftime("%Y-%m-%d")
         
         content = f"""# LinkedIn Post by {name}
@@ -136,9 +141,10 @@ def fetch_latest_post(name):
 def main():
     parser = argparse.ArgumentParser(description="Fetch latest LinkedIn posts for experts.")
     parser.add_argument("--expert", required=True, help="Name of the expert to fetch.")
+    parser.add_argument("--offset", type=int, default=0, help="Offset index (0=newest, 1=second newest, etc.)")
     args = parser.parse_args()
     
-    success = fetch_latest_post(args.expert)
+    success = fetch_latest_post(args.expert, offset=args.offset)
     sys.exit(0 if success else 1)
 
 
