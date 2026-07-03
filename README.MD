@@ -1,13 +1,24 @@
-# Alex_Houndred_hires
-Alex Houndred_hires repository
+# 🚀 Alex Houndred Hires
+
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=flat&logo=github&logoColor=white)](https://github.com/)
+[![IDE: Cursor](https://img.shields.io/badge/IDE-Cursor-00c2cb.svg?style=flat)](https://cursor.com/)
+[![IDE: Antigravity](https://img.shields.io/badge/IDE-Antigravity-orange.svg?style=flat)](https://deepmind.google/)
+[![LLM: Claude](https://img.shields.io/badge/LLM-Claude%203.5-red.svg?style=flat)](https://anthropic.com/)
+[![LLM: Gemini](https://img.shields.io/badge/LLM-Gemini%203.5-blue.svg?style=flat)](https://deepmind.google/)
+[![Data: Perplexity](https://img.shields.io/badge/Data-Perplexity-green.svg?style=flat)](https://perplexity.ai/)
+
+Welcome to the **Alex Houndred Hires** repository! This project focuses on research, scraping pipelines, and expert database curation for high-performance organic growth.
 
 ---
 
-## 🎯 Selected Research Topic: **`AI-powered SEO content production`**
+## 🎯 Selected Research Topic
+
+> [!IMPORTANT]
+> ### **AI-powered SEO content production**
+> Traditional SEO is undergoing a massive shift due to the introduction of AI-powered search engines (e.g., Google's AI Overviews, Search Generative Experience, and Generative Engine Optimization). To succeed in this new landscape, businesses must pivot from manual search tactics to automated, semantic, and high-quality content production.
 
 ### Why this topic was chosen:
-Traditional SEO is undergoing a massive shift due to the introduction of AI-powered search engines (e.g., Google's AI Overviews, Search Generative Experience, and Generative Engine Optimization). To succeed in this new landscape, businesses must pivot from manual search tactics to automated, semantic, and high-quality content production. 
-
 This topic was chosen to design and build a pipeline that:
 1. **Identifies Real-World Experts**: Curation of a database of SEO practitioners who actively run data experiments on AI-SEO campaigns rather than just theoretical strategy.
 2. **Automates Content Sourcing**: Building python utilities to retrieve and clean LinkedIn posts and YouTube transcripts from leading SEO minds.
@@ -15,7 +26,7 @@ This topic was chosen to design and build a pipeline that:
 
 ---
 
-# Project Setup and Environment Configuration
+# ⚙️ Project Setup and Environment Configuration
 
 This repository contains the documentation for the initial development environment setup, including the tools installed, configuration steps completed, and troubleshooting for the IDE user interface.
 
@@ -62,11 +73,12 @@ The following tools and extensions were installed to establish the development e
 
 ## 🔄 Development Transition & LLM Tooling Journey
 
-This project was built using a hybrid model approach across different development tools and Large Language Models (LLMs) to ensure completion under constraints:
-
-1. **Initial Phase (Cursor & Claude Code)**: The first half of the project was developed using Claude Code within the Cursor IDE. Due to token limitations on Cursor's free tier, a transition was made to Antigravity (Gemini-powered IDE) to fulfill all project requirements on time.
-2. **Data Sourcing (Perplexity & Comet Browser Assistant)**: To scrape, scrub, and compile the expert profile data, we utilized Perplexity AI in combination with the Comet browser assistant.
-3. **Multi-Model Orchestration**: Throughout the project, various LLM models and token allocations were strategically managed and combined to optimize context limits and build the current pipelines.
+> [!NOTE]
+> This project was built using a hybrid model approach across different development tools and Large Language Models (LLMs) to ensure completion under constraints:
+>
+> 1. **Initial Phase (Cursor & Claude Code)**: The first half of the project was developed using Claude Code within the Cursor IDE. Due to token limitations on Cursor's free tier, a transition was made to Antigravity (Gemini-powered IDE) to fulfill all project requirements on time.
+> 2. **Data Sourcing (Perplexity & Comet Browser Assistant)**: To scrape, scrub, and compile the expert profile data, we utilized Perplexity AI in combination with the Comet browser assistant.
+> 3. **Multi-Model Orchestration**: Throughout the project, various LLM models and token allocations were strategically managed and combined to optimize context limits and build the current pipelines.
 
 ---
 
@@ -77,12 +89,16 @@ The expert research database was curated using a multi-stage selection process:
 1. **Initial Selection (35+ Candidates)**: The complete initial screening pool of candidates is cataloged in the external spreadsheet:
    - **Google Sheet Link**: [Alex Houndred Hires Selected Profiles Spreadsheet](https://docs.google.com/spreadsheets/d/1ONKwwYx_QyoVWoaVE_3k3k5iGHVGVENPDcjz4HLSxa8/edit?gid=1999288685#gid=1999288685)
 2. **Filtering Criteria & Methodology**: The initial pool of profiles was filtered down to the **Top 10 Selected Experts** and **Honorable Mentions** based on specific criteria documented in [sources.md](file:///Users/bhargavnayak/.gemini/antigravity-ide/scratch/Alex_Houndredhires/research/sources.md). These criteria are:
-   - **Relevance Filter**: The candidate must directly address and specialize in AI-powered SEO content production.
-   - **Practitioner Test**: The candidate must demonstrate hands-on experience by building or running actual AI content systems, publishing real data experiments rather than just theoretical strategy.
-   - **Platform Diversity**: Curation of a balanced mix of creators across YouTube, LinkedIn, podcasts, and blogs.
-   - **Content Freshness**: Active engagement in 2025–2026 with recent insights.
-   - **Unique Angle**: Each expert must bring a distinct perspective (e.g., semantic SEO, n8n automations, GEO/AEO optimization).
-   - **Actionability**: Content must provide replicable systems, prompts, or workflows.
+
+   | Filter | Description |
+   | :--- | :--- |
+   | **Relevance Filter** | The candidate must directly address and specialize in AI-powered SEO content production. |
+   | **Practitioner Test** | The candidate must demonstrate hands-on experience by building or running actual AI content systems, publishing real data experiments rather than just theoretical strategy. |
+   | **Platform Diversity** | Curation of a balanced mix of creators across YouTube, LinkedIn, podcasts, and blogs. |
+   | **Content Freshness** | Active engagement in 2025–2026 with recent insights. |
+   | **Unique Angle** | Each expert must bring a distinct perspective (e.g., semantic SEO, n8n automations, GEO/AEO optimization). |
+   | **Actionability** | Content must provide replicable systems, prompts, or workflows. |
+
 3. **Final Selection**: The resulting profiles, details, and platform links for the selected experts are stored in [sources.md](file:///Users/bhargavnayak/.gemini/antigravity-ide/scratch/Alex_Houndredhires/research/sources.md).
 
 ---
