@@ -1,7 +1,48 @@
-certifi==2026.6.17
-charset-normalizer==3.4.7
-defusedxml==0.7.1
-idna==3.18
+# ==============================================================================
+# 🛠️ Alex Houndred Hires – Development Stack & Environment Dependencies
+# ==============================================================================
+# This file catalogs both the Python package dependencies (installable via pip)
+# and the developer tooling stack utilized throughout the project workflow.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 💻 Core Developer Tooling & IDEs (Required Infrastructure)
+# ------------------------------------------------------------------------------
+#
+# 1. Cursor IDE
+#    - Purpose: AI-first code editor used in the initial stage.
+#    - Why Required: Employed to bootstrap code structure and manage early repository setups.
+#
+# 2. Antigravity IDE (Gemini-powered)
+#    - Purpose: Agentic programming environment.
+#    - Why Required: Primary IDE for project transition, file compiling, and finalization.
+#
+# 3. Google Cloud Code (claudecode)
+#    - Purpose: Cloud service integration.
+#    - Why Required: Handles remote deployment profiles and cloud workflows.
+#
+# 4. Codex
+#    - Purpose: Autocomplete and context suggestions.
+#    - Why Required: Boosts developer efficiency through real-time code recommendations.
+#
+# 5. OpenRouter (API Key Management)
+#    - Purpose: Unified API gatekeeper for LLMs.
+#    - Why Required: Centralizes API keys (e.g., Claude, Gemini, GPT) to manage token pools.
+#
+
+# ------------------------------------------------------------------------------
+# 📦 Python Package Dependencies (Installable via: pip install -r requirements.txt)
+# ------------------------------------------------------------------------------
+
+# Core transcript fetching and parsing
+youtube-transcript-api==1.2.4
+
+# Network request processing and HTTP interactions
 requests==2.32.5
 urllib3==2.6.3
-youtube-transcript-api==1.2.4
+idna==3.18
+charset-normalizer==3.4.7
+certifi==2026.6.17
+
+# XML parsing for YouTube RSS feeds
+defusedxml==0.7.1
